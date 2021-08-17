@@ -9,6 +9,11 @@
 	<name>spring-cloud-demo</name>
 	<url>https://www.baidu.com</url>
 
+
+	<modules>
+		<module>cloud-provider-payment8001</module>
+	</modules>
+
 	<!-- 统一管理jar包版本 -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
