@@ -4,9 +4,13 @@ import com.brotao.sc.common.CommonResult;
 import com.brotao.sc.entities.Payment;
 import com.brotao.sc.services.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -14,6 +18,12 @@ public class PaymentController {
 
 	@Resource
 	private PaymentService paymentService;
+
+	@Value("${server.port}")
+	private String port;
+
+	@Resource
+	private DiscoveryClient discoveryClient;
 
 	@PostMapping(value = "/payment/create")
 	public CommonResult<Payment> create(@RequestBody Payment payment)
@@ -23,9 +33,9 @@ public class PaymentController {
 
 		if(result > 0)
 		{
-			return new CommonResult<>(200,"插入数据库成功:"+result);
+			return new CommonResult<>(200,port+"插入数据库成功:"+result);
 		}else{
-			return new CommonResult<>(444,"插入数据库失败",null);
+			return new CommonResult<>(444,port+"插入数据库失败",null);
 		}
 	}
 
@@ -36,9 +46,27 @@ public class PaymentController {
 
 		if(payment != null)
 		{
-			return new CommonResult<>(200,"查询成功", payment);
+			return new CommonResult<>(200,port+"查询成功", payment);
 		}else{
-			return new CommonResult<>(444,"没有对应记录,查询ID: "+id,null);
+			return new CommonResult<>(444,port+"没有对应记录,查询ID: "+id,null);
 		}
+	}
+
+	@GetMapping(value = "payment/discovery")
+	public Object discovery() {
+		List<String> services = discoveryClient.getServices();
+
+		log.info(">>>>>>>>elements:");
+		services.forEach(log::info);
+		log.info("<<<<<<<<");
+
+		List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+
+		for (ServiceInstance instance : instances) {
+			log.info("serviceId: {}, host: {}, port: {}, uri: {}",
+					instance.getServiceId(), instance.getHost(), instance.getPort(), instance.getUri());
+		}
+
+		return this.discoveryClient;
 	}
 }
