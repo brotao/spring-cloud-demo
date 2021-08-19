@@ -22,6 +22,13 @@ eureka:
   instance:
     instance-id: payment8001
     prefer-ip-address: true
+    #心跳检测与续约时间
+    #开发时没置小些，保证服务关闭后注册中心能即使剔除服务
+    #Eureka客户端向服务端发送心跳的时间间隔，单位为秒(默认是30秒)
+    lease-renewal-interval-in-seconds: 1
+    #Eureka服务端在收到最后一次心跳后等待时间上限，单位为秒(默认是90秒)，超时将剔除服务
+    lease-expiration-duration-in-seconds: 2
+
   client:
     register-with-eureka: true #表示是否将自己注册进Eurekaserver默认为true
     #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡

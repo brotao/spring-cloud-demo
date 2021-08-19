@@ -1,16 +1,15 @@
 package com.brotao.sc;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaClient
 @EnableDiscoveryClient
-//@RibbonClient(name = "CLOUD-PAYMENT-SERVICE", configuration = MySelfRule.class)
-public class OrderMain80 {
+public class PaymentMain8004 {
 	public static void main(String[] args) {
-		SpringApplication.run(OrderMain80.class, args);
+		SpringApplication.run(PaymentMain8004.class, args);
 	}
 }
