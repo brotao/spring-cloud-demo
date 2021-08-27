@@ -31,6 +31,7 @@
 		<module>cloudalibaba-sentinel-service8401</module>
         <module>cloud-gateway-gateway9527</module>
 		<module>boot-mq-rabbitmq</module>
+		<module>file-upload-service</module>
 	</modules>
 
 	<!-- 统一管理jar包版本 -->
@@ -44,6 +45,7 @@
 		<mysql.version>5.1.47</mysql.version>
 		<druid.version>1.2.6</druid.version>
 		<mybatis.spring.boot.version>2.1.4</mybatis.spring.boot.version>
+		<jsch.version>0.1.55</jsch.version>
 	</properties>
 
 	<dependencyManagement>
@@ -100,6 +102,11 @@
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
 				<optional>true</optional>
+			</dependency>
+			<dependency>
+				<groupId>com.jcraft</groupId>
+				<artifactId>jsch</artifactId>
+				<version>${jsch.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
