@@ -22,6 +22,7 @@ public class FtpUploadService {
 		ftpFactory.setControlEncoding("UTF-8");
 
 		FtpSession session = ftpFactory.getSession();
+		session.mkdir(path);
 		session.write(in, path + "/" + filename);
 	}
 

@@ -39,12 +39,12 @@ public class FileUploadController {
 		final int port = 21;
 		final String username = "pureuser";
 		final String password = "123456";
-		final String path = ".";
+		final String path = "./test";
 		String filename = file[0].getOriginalFilename();
-		String sysCharset = System.getProperty("file.encoding");
-		log.info(sysCharset);
-
-		filename = new String(filename.getBytes(sysCharset), "UTF-8");
+//		String sysCharset = System.getProperty("file.encoding");
+//		log.info(sysCharset);
+//
+//		filename = new String(filename.getBytes(sysCharset), "UTF-8");
 
 		service.upload(file[0].getInputStream(), host, port, username, password, path,filename);
 
