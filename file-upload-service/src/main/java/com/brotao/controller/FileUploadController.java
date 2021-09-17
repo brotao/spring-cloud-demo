@@ -50,7 +50,7 @@ public class FileUploadController {
 //
 //		filename = new String(filename.getBytes(sysCharset), "UTF-8");
 
-        filename = new String(filename.getBytes(sysCharset), StandardCharsets.UTF_8);
+        filename = new String(filename.getBytes(), StandardCharsets.UTF_8);
 
         service.upload(file[0].getInputStream(), host, port, username, password, path, filename);
 

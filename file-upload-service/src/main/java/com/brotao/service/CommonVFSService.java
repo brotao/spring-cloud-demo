@@ -20,7 +20,6 @@ public class CommonVFSService {
 
         FileObject srcFO = manager.resolveFile(srcPath);
 
-
         FileObject destFO = manager.resolveFile(destPath + "/" + srcFO.getPath().getFileName().toString(), sftpServerOptions());
 
 
