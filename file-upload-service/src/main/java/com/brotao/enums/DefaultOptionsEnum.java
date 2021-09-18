@@ -2,12 +2,14 @@ package com.brotao.enums;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.net.util.KeyManagerUtils;
 import org.apache.commons.net.util.TrustManagerUtils;
 import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.FileSystemOptions;
 import org.apache.commons.vfs2.provider.ftp.FtpFileSystem;
 import org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilder;
 import org.apache.commons.vfs2.provider.ftp.FtpFileType;
+import org.apache.commons.vfs2.provider.ftps.FtpsDataChannelProtectionLevel;
 import org.apache.commons.vfs2.provider.ftps.FtpsFileSystemConfigBuilder;
 import org.apache.commons.vfs2.provider.ftps.FtpsMode;
 import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder;
@@ -44,7 +46,9 @@ public enum DefaultOptionsEnum {
 		builder.setFileType(opts, FtpFileType.BINARY);
 		builder.setAutodetectUtf8(opts, true);
 		builder.setFtpsMode(opts, FtpsMode.EXPLICIT);
+		builder.setDataChannelProtectionLevel(opts, FtpsDataChannelProtectionLevel.P);
 //		builder.setTrustManager(opts, TrustManagerUtils.getValidateServerCertificateTrustManager());
+//		builder.setKeyManager(opts, KeyManagerUtils.);
 
 		this.opts = opts;
 	}
@@ -56,8 +60,9 @@ public enum DefaultOptionsEnum {
 			log.error("初始化sftp默认配置错误", e);
 		}
 		builder.setUserDirIsRoot(opts, true);
-//		builder.setConnectTimeoutMillis(opts, 60000);
+		builder.setConnectTimeoutMillis(opts, 60000);
 		builder.setPreferredAuthentications(opts, "password");
+		builder.setDisableDetectExecChannel(opts, true);
 		this.opts = opts;
 	}
 
