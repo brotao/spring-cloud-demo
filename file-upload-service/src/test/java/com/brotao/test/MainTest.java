@@ -32,5 +32,25 @@ public class MainTest {
 		Date date = new Date(342946132868L);
 		log.info(date.toString());
 
+		Boolean a = true;
+		Boolean b = true;
+		Boolean c = new Boolean(true);
+		Boolean d = null;
+
+		if (a == b ) {
+			log.info("aaa");
+		}
+
+		if (a.equals(c)) {
+			log.info("ccc");
+		}
+
+		if (Boolean.TRUE.equals(d)) {
+			log.info("ddd");
+		}
+
+		if (Boolean.TRUE.equals(a)) {
+			log.info("aaaddd");
+		}
 	}
 }
