@@ -2,7 +2,8 @@ server:
   port: 15000
 
 logging:
-  level: debug
+  level:
+    com.brotao: debug
 
 spring:
   application:
