@@ -37,7 +37,8 @@
         <module>cloud-stream-rabbitmq-consumer8803</module>
         <module>msa-sample-api</module>
         <module>msa-framework</module>
-    </modules>
+		<module>blog-case</module>
+	</modules>
 
 	<!-- 统一管理jar包版本 -->
 	<properties>
