@@ -38,6 +38,7 @@
         <module>msa-sample-api</module>
         <module>msa-framework</module>
 		<module>blog-case</module>
+		<module>integration-sample</module>
 	</modules>
 
 	<!-- 统一管理jar包版本 -->
@@ -52,6 +53,7 @@
 		<druid.version>1.2.6</druid.version>
 		<mybatis.spring.boot.version>2.1.4</mybatis.spring.boot.version>
 		<jsch.version>0.1.55</jsch.version>
+		<hutool-all.version>4.6.3</hutool-all.version>
 	</properties>
 
 	<dependencyManagement>
@@ -113,6 +115,11 @@
 				<groupId>com.jcraft</groupId>
 				<artifactId>jsch</artifactId>
 				<version>${jsch.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool-all.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

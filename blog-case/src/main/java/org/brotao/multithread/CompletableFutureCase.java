@@ -61,7 +61,7 @@ public class CompletableFutureCase {
 			if (e != null) err.getAndIncrement();
 		});
 
-/*		CompletableFuture<String> thread3 = CompletableFuture.supplyAsync(() -> {
+		CompletableFuture<String> thread3 = CompletableFuture.supplyAsync(() -> {
 
 			for (int i = 0; i < 2; i++) {
 				log.info("C线程：{}，是否是守护线程: {}, 计数：{}"
@@ -70,16 +70,23 @@ public class CompletableFutureCase {
 						, i
 				);
 			}
+			try {
+				String s = null;
+				s.toString();
+			} catch (Exception e) {
+				log.error("error: ", e);
+				throw new RuntimeException("error");
+			}
 			return Thread.currentThread().getName();
 		}, pool);
 		thread3.whenCompleteAsync((s, e) -> {
 			if (e != null) err.getAndIncrement();
-		});*/
+		});
 
-		CompletableFuture<String>[] results = new CompletableFuture[]{thread1, thread2};
+		CompletableFuture<String>[] results = new CompletableFuture[]{thread1, thread2, thread3};
 		CompletableFuture<Void> voidFuture = CompletableFuture.allOf(results);
 
-		voidFuture.get(20, TimeUnit.SECONDS);
+		voidFuture.get(60, TimeUnit.SECONDS);
 
 //		pool.shutdown();
 

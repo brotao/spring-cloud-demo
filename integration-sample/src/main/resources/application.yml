@@ -1,0 +1,14 @@
+
+ftpconfig:
+  host: localhost
+  port: 22
+  username: luotao
+  password: 123456
+  clientMode: 0
+  fileType: 2
+  bufferSize: 100000
+
+logging:
+  level:
+    com.brotao.sc: debug
+    org.springframework.integration: debug
