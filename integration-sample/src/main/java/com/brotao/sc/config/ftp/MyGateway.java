@@ -12,8 +12,8 @@ import java.io.File;
  * @description MyGateway
  * @date 2021-12-08 13:25
  */
-@MessagingGateway
-@Component
+//@MessagingGateway
+//@Component
 public interface MyGateway {
 	@Gateway(requestChannel = "toFtpChannel")
 	void sendToFtp(File file);

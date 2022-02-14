@@ -39,6 +39,7 @@
         <module>msa-framework</module>
 		<module>blog-case</module>
 		<module>integration-sample</module>
+		<module>design-pattern</module>
 	</modules>
 
 	<!-- 统一管理jar包版本 -->

@@ -23,8 +23,7 @@ import java.io.File;
  * @description FtpConfig
  * @date 2021-12-08 10:24
  */
-/*
-@Configuration
+//@Configuration
 public class FtpConfig {
 
 	@Bean
@@ -53,4 +52,3 @@ public class FtpConfig {
 		return handler;
 	}
 }
-*/

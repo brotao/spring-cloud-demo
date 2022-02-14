@@ -17,7 +17,7 @@ import org.springframework.integration.sftp.session.SftpRemoteFileTemplate;
  * @date 2021-12-08 15:22
  */
 
-@Configuration
+//@Configuration
 public class SftpConfig {
 
 	@Bean

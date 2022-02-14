@@ -18,6 +18,7 @@ import java.io.File;
  * @description FtpConfigTest
  * @date 2021-12-08 10:51
  */
+/*
 
 @SpringBootTest
 class FtpConfigTest {
@@ -49,3 +50,4 @@ class FtpConfigTest {
 	}
 
 }
+*/

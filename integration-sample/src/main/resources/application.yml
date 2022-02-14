@@ -12,3 +12,19 @@ logging:
   level:
     com.brotao.sc: debug
     org.springframework.integration: debug
+
+app:
+  inner-server:
+    sftps:
+      - host: 10.106.0.221
+        user: root
+        password: Hundsun@1
+        allowUnknownKeys: true
+      - host: 10.106.0.220
+        user: root
+        password: tAR4UZyD
+        allowUnknownKeys: true
+      - host: 10.106.0.219
+        user: root
+        password: Ax8Ainy7
+        allowUnknownKeys: true

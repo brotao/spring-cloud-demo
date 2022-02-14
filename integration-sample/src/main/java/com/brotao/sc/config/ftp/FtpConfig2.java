@@ -24,7 +24,7 @@ import org.springframework.messaging.MessageHandler;
  * @description FtpConfig
  * @date 2021-12-08 10:24
  */
-@Configuration
+//@Configuration
 public class FtpConfig2 {
 
 	@Bean
@@ -46,6 +46,8 @@ public class FtpConfig2 {
 		FtpRemoteFileTemplate template = new FtpRemoteFileTemplate(ftpSessionFactory);
 		template.setRemoteDirectoryExpression(new LiteralExpression(""));
 		template.setAutoCreateDirectory(true);
+		template.setTemporaryFileSuffix("");
+		template.setUseTemporaryFileName(false);
 		return template;
 	}
 
