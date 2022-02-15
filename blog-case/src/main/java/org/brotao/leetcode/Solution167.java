@@ -35,7 +35,6 @@ public class Solution167 {
 			}
 		}
 		return new int[] {-1, -1};
-
 	}
 
 	public static int[] twoSumI(int[] numbers, int target) {
@@ -50,6 +49,5 @@ public class Solution167 {
 		}
 
 		return new int[0];
-
 	}
 }
