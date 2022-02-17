@@ -32,6 +32,5 @@ public class App {
 		LockSupport.park();
 
 		System.out.println((byte)2000L);
-
 	}
 }
