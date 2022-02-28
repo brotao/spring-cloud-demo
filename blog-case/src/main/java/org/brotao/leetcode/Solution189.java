@@ -15,23 +15,41 @@ import java.util.Arrays;
 public class Solution189 {
 	public static void main(String[] args) {
 		int[] nums = new int[] {1,2,3,4,5,6,7};
-		int k = 1;
+		int k = 3;
 		rotate(nums, k);
 		log.info(Arrays.toString(nums));
 	}
 	public static void rotate(int[] nums, int k) {
-		int len = nums.length-1;
-		int k2 = nums.length - k;
-		int next = len;
-		int tmp = nums[next];
+		int length = nums.length;
+		int k2 = k % length;
 
-		do {
-			int  a = (next + k2 )%nums.length;
-			if (a < 0) a = a + nums.length;
-			nums[next] = nums[a];
-			next = a;
-		} while (next != (len-1));
 
-		nums[next] = tmp;
+//		int idx = 0;
+//		int tmp = nums[idx];
+//		int next = ((idx - k2) < 0 ?  (idx - k2 + length) : (idx - k2)) % length;
+//		nums[idx] = nums[next];
+//		idx = next;
+
+		int gcd = gcd(length, k2);
+		for (int i = 0; i < gcd; i++) {
+			int i2 = i;
+			int tmp = nums[i];
+			int next = ((i2 - k2) < 0 ?  (i2 - k2 + length) : (i2 - k2)) % length;
+
+			do {
+				nums[i2] = nums[next];
+				i2 = next;
+				next = ((i2 - k2) < 0 ?  (i2 - k2 + length) : (i2 - k2)) % length;
+			}while (next != i);
+			nums[i2] = tmp;
+		}
+
+
+
+
+	}
+
+	private static int gcd(int a, int b) {
+		return b > 0 ? gcd(b, a % b) : a;
 	}
 }
