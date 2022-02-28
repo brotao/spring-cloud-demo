@@ -87,4 +87,12 @@ public class AppTest {
 		}
 	}
 
+	@Test
+	public void testSplit() {
+		String str= "/aaa/20220218/TestCSV.csv.zip";
+		for (String s : str.split("/")) {
+			System.out.println(s);
+		}
+	}
+
 }
