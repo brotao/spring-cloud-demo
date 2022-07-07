@@ -5,10 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Unit test for simple App.
@@ -89,10 +86,58 @@ public class AppTest {
 
 	@Test
 	public void testSplit() {
-		String str= "/aaa/20220218/TestCSV.csv.zip";
+		/*String str= "/aaa/20220218/TestCSV.csv.zip";
 		for (String s : str.split("/")) {
 			System.out.println(s);
-		}
+		}*/
+
+		String s = "";
+		String[] qws = s.split("qw");
+		System.out.println(qws.length);
+		System.out.println(Arrays.toString(qws));
 	}
+
+	@Test
+	public void testMaxWord() {
+		String[] words = new String[] {"apple","iOS","dog","nana","man","good","goodman"};
+
+		List<String> list = new ArrayList<>(Arrays.asList(words));
+		Collections.sort(list, new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				if (o1.length() == o2.length()) {
+					return o1.compareTo(o2);
+				}
+				return o1.length()-o2.length();
+			}
+		});
+
+		int size = list.size();
+		for (int i = 0; i < size-1; i++) {
+			boolean res = find(list.get(i), list, i+1, size-1);
+		}
+
+
+
+	}
+
+	private boolean find(String word, List<String> list, int start , int end) {
+
+
+		for (int i = start; i <= end; i++) {
+			int i1 = word.indexOf(list.get(i));
+			if (i1 < 0) {
+				continue;
+			}
+			String[] split = word.split(list.get(i));
+			for (int i2 = 0; i2 < split.length; i2++) {
+//				split[i2].split()
+			}
+
+		}
+		
+		return false;
+	}
+
 
 }

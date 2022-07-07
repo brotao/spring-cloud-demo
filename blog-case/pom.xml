@@ -72,6 +72,10 @@
 			<version>0.16</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy</artifactId>
+		</dependency>
 
 
 	</dependencies>
