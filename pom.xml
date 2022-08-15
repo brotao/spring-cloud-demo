@@ -40,6 +40,7 @@
     <module>blog-case</module>
     <module>integration-sample</module>
     <module>design-pattern</module>
+    <module>my-starter-hello</module>
   </modules>
 
   <!-- 统一管理jar包版本 -->
