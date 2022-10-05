@@ -42,6 +42,7 @@
     <module>design-pattern</module>
     <module>my-starter-hello</module>
     <module>kafka-study</module>
+    <module>study-module</module>
   </modules>
 
   <!-- 统一管理jar包版本 -->
