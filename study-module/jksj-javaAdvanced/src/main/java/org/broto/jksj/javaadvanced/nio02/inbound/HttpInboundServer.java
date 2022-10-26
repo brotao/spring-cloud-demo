@@ -29,8 +29,7 @@ public class HttpInboundServer {
         ServerBootstrap server = new ServerBootstrap();
         server.group(boss, worker)
                 .channel(NioServerSocketChannel.class)
-                // TODO
-                .childHandler(null)
+                .childHandler(new HttpInboundInitializer())
                 .option(ChannelOption.SO_BACKLOG, 128)
                 .childOption(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_RCVBUF, 32*1024)
